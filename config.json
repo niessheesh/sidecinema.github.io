@@ -1,0 +1,57 @@
+{
+  "projectName": "SideCinema",
+  "version": "1.0.0",
+  "description": "Platform streaming film dengan fitur search suggestion",
+  "author": "Team SideCinema",
+  "email": "mufhiyatus@gmail.com",
+  "phone": "+62 852-8309-2483",
+  "technologies": [
+    "HTML5",
+    "CSS3",
+    "JavaScript (Vanilla)",
+    "Bootstrap 5.3.8",
+    "Font Awesome 6.0.0"
+  ],
+  "features": [
+    "Search suggestion dropdown",
+    "Real-time movie filtering",
+    "Responsive design",
+    "Movie carousel",
+    "Contact form",
+    "Movie categorization (Horror & Comedy)"
+  ],
+  "fileStructure": {
+    "html": [
+      "index.html",
+      "horor.html",
+      "comedy.html",
+      "sinopsis*.html"
+    ],
+    "css": [
+      "style.css"
+    ],
+    "javascript": [
+      "script.js"
+    ],
+    "documentation": [
+      "README.md",
+      "DOCUMENTATION.md",
+      "config.json"
+    ]
+  },
+  "searchFeature": {
+    "status": "active",
+    "type": "autocomplete",
+    "dataSource": "image alt attributes",
+    "caseSensitive": false,
+    "matchType": "includes"
+  },
+  "styling": {
+    "primaryColor": "#FFB6D9",
+    "accentColor": "#FF1493",
+    "fontFamily": "Arial, Helvetica, sans-serif",
+    "responsiveBreakpoint": "768px"
+  },
+  "lastUpdated": "2026-01-11",
+  "status": "production"
+}

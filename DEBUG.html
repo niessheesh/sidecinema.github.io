@@ -1,0 +1,143 @@
+<!-- Debugging Guide untuk SideCinema Search Feature -->
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Debug Test - SideCinema</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+    .debug-box {
+      background: white;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #333;
+      border-bottom: 2px solid #ff69b4;
+      padding-bottom: 10px;
+    }
+    .code {
+      background: #f0f0f0;
+      padding: 10px;
+      border-radius: 4px;
+      overflow-x: auto;
+      font-family: monospace;
+    }
+    .success { color: green; }
+    .error { color: red; }
+    button {
+      background: #ff69b4;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    button:hover {
+      background: #ff1493;
+    }
+  </style>
+</head>
+<body>
+
+<h1>🎬 SideCinema - Debug Test</h1>
+
+<div class="debug-box">
+  <h2>Langkah-langkah Debug</h2>
+  <ol>
+    <li>Buka <strong>index.html</strong> di browser</li>
+    <li>Tekan <strong>F12</strong> untuk buka Developer Tools</li>
+    <li>Pergi ke tab <strong>Console</strong></li>
+    <li>Lihat apakah ada pesan seperti:
+      <ul>
+        <li>✓ SideCinema Script Loaded</li>
+        <li>✓ searchInput: HTMLInputElement</li>
+        <li>✓ suggestionContainer: HTMLDivElement</li>
+        <li>✓ Jumlah film: [number]</li>
+      </ul>
+    </li>
+  </ol>
+</div>
+
+<div class="debug-box">
+  <h2>Jika Tidak Ada Pesan Console</h2>
+  <p><strong>Kemungkinan masalah:</strong></p>
+  <ul>
+    <li>❌ script.js tidak ter-load (periksa di tab Network)</li>
+    <li>❌ Ada error syntax (periksa di tab Console)</li>
+    <li>❌ Element ID tidak sesuai</li>
+  </ul>
+  
+  <p><strong>Solusi:</strong></p>
+  <ol>
+    <li>Di HTML, cek apakah ada: <code>&lt;input id="searchInput"&gt;</code></li>
+    <li>Di HTML, cek apakah ada: <code>&lt;div id="suggestionContainer"&gt;</code></li>
+    <li>Di HTML, cek apakah <code>&lt;script src="script.js"&gt;</code> ada di akhir body</li>
+  </ol>
+</div>
+
+<div class="debug-box">
+  <h2>Jika Suggestion Tidak Muncul saat Ketik</h2>
+  <p><strong>Cek di Console:</strong></p>
+  <div class="code">
+    // Ketik di console saat sudah membuka index.html:
+    document.getElementById("searchInput")
+    document.getElementById("suggestionContainer")
+    document.querySelectorAll(".movies img").length
+  </div>
+  
+  <p>Jika salah satu return <code>null</code>, berarti element tidak ditemukan.</p>
+</div>
+
+<div class="debug-box">
+  <h2>Test Manual di Console</h2>
+  <div class="code">
+// 1. Test element ada
+console.log("Input:", document.getElementById("searchInput"));
+
+// 2. Test film count
+console.log("Films:", document.querySelectorAll(".movies img").length);
+
+// 3. Ubah nilai input manual
+document.getElementById("searchInput").value = "jumanji";
+
+// 4. Trigger event
+document.getElementById("searchInput").dispatchEvent(new Event("keyup"));
+  </div>
+</div>
+
+<div class="debug-box">
+  <h2>Informasi Script</h2>
+  <p><strong>File:</strong> script.js</p>
+  <p><strong>Size:</strong> ~3KB</p>
+  <p><strong>Dependencies:</strong> None (Vanilla JavaScript)</p>
+  <p><strong>Browser Support:</strong> Chrome, Firefox, Safari, Edge</p>
+</div>
+
+<div class="debug-box">
+  <h2>Checklist</h2>
+  <ul>
+    <li>✅ script.js ter-load di akhir body</li>
+    <li>✅ Element ID: searchInput</li>
+    <li>✅ Element ID: suggestionContainer</li>
+    <li>✅ Semua film punya atribut alt</li>
+    <li>✅ style.css di-load dengan benar</li>
+    <li>✅ Tidak ada error di Console</li>
+  </ul>
+</div>
+
+<button onclick="location.href='index.html'">← Kembali ke SideCinema</button>
+
+</body>
+</html>

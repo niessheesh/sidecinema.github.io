@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> yowesben </title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Mengatur halaman */
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a; /* Latar belakang gelap */
+            color: #e0e0e0; /* Warna teks terang */
+        }
+
+        /* === MENGATUR NAVBAR (HEADER) === */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%; /* Padding lebih besar */
+            background-color: #0d0d0d; /* Navbar lebih gelap */
+            border-bottom: 1px solid #333;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        header .logo img {
+            height: 50px; /* Ukuran logo sedikit lebih besar */
+        }
+        
+        .back-button {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-size: 1.1rem; /* Ukuran font tombol lebih besar */
+            padding: 10px 20px;
+            border: 1px solid #777;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .back-button:hover {
+            background-color: #333;
+            color: white;
+            border-color: white;
+        }
+
+
+        /* === KONTINER UTAMA SINOPSIS (Diperbesar) === */
+        .sinopsis-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 40px;               /* Jarak antar item lebih besar */
+            
+            max-width: 1200px;       /* Batas lebar utama: LEBIH BESAR */
+            margin: 60px auto;       /* Jarak dari atas/bawah lebih besar */
+            padding: 40px;           /* Padding di dalam kotak lebih besar */
+            background-color: #2a2a2a; /* Latar belakang kontainer gelap */
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+        }
+
+        /* GAMBAR POSTER */
+        .poster-gambar {
+            width: 350px;  /* Lebar gambar LEBIH BESAR */
+            height: auto;
+            border-radius: 10px;
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        /* KONTINER TEKS */
+        .teks-konten {
+            flex: 1;
+        }
+
+        /* JUDUL FILM */
+        .judul-film {
+            font-size: 48px; /* Ukuran judul LEBIH BESAR */
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: #FFD700; /* Warna kuning emas untuk judul */
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+
+        /* METADATA */
+        .movie-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px; /* Jarak antar tag lebih besar */
+            margin-bottom: 30px;
+        }
+        .meta-tag {
+            background-color: rgba(255,255,255,0.15); /* Latar belakang tag transparan gelap */
+            color: #ffffff;
+            padding: 8px 15px; /* Padding tag lebih besar */
+            border-radius: 6px;
+            font-size: 15px; /* Ukuran font tag lebih besar */
+            font-weight: 600;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        /* TEKS SINOPSIS */
+        .teks-sinopsis {
+            font-size: 18px; /* Ukuran font sinopsis LEBIH BESAR */
+            line-height: 1.7; /* Jarak antar baris lebih lebar */
+            margin-bottom: 40px; /* Jarak bawah sinopsis lebih besar */
+            color: #c0c0c0; /* Warna teks sinopsis abu-abu terang */
+        }
+
+        /* TOMBOL "Mulai" */
+        .play-button {
+            display: inline-block;
+            background-color: #E50914; /* Merah terang */
+            color: white;
+            padding: 15px 35px; /* Ukuran tombol LEBIH BESAR */
+            font-size: 20px; /* Ukuran font tombol LEBIH BESAR */
+            font-weight: bold;
+            text-decoration: none;
+            border: none;
+            border-radius: 8px; /* Sudut tombol lebih melengkung */
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .play-button:hover {
+            background-color: #f40612;
+            transform: translateY(-2px); /* Efek sedikit terangkat saat hover */
+        }
+
+
+        /* ===============================================
+          !!! PERBAIKAN GAMBAR ANDA YANG MIRING !!!
+          ===============================================
+          
+          Gambar 'waktumagrib.jpg' Anda terlihat miring 90 derajat. 
+          
+          Cara TERBAIK adalah:
+          1. Buka file 'waktumagrib.jpg' di komputer/HP Anda.
+          2. Putar 90 derajat sampai tegak.
+          3. SIMPAN file tersebut.
+          
+
+          Jika Anda sudah melakukan itu, HAPUS kode CSS di bawah ini.
+          Jika BELUM, HAPUS tanda komentar (/* dan */) di bawah ini
+          agar CSS bisa memutarnya secara otomatis.
+        */
+        /*
+        .poster-gambar {
+            transform: rotate(90deg);
+            width: 450px; 
+            height: 300px;
+            transform-origin: 150px 150px; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        */
+
+        /* --- RESPONSIVE UNTUK LAYAR KECIL (HP) --- */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            header {
+                padding: 10px 3%;
+            }
+            header .logo img {
+                height: 35px;
+            }
+            .back-button {
+                font-size: 0.9rem;
+                padding: 8px 15px;
+            }
+
+            .sinopsis-container {
+                flex-direction: column; /* Tata letak jadi atas-bawah */
+                align-items: center; /* Konten di tengah horizontal */
+                text-align: center; /* Teks juga di tengah */
+                margin: 30px auto;
+                padding: 20px;
+                gap: 25px;
+            }
+            .poster-gambar {
+                width: 70%; /* Gambar lebih besar di HP */
+                height: auto;
+                margin-bottom: 10px;
+            }
+            .judul-film {
+                font-size: 36px;
+                margin-bottom: 15px;
+            }
+            .movie-meta {
+                gap: 10px;
+                margin-bottom: 20px;
+                justify-content: center;
+            }
+            .meta-tag {
+                padding: 6px 12px;
+                font-size: 14px;
+            }
+            .teks-sinopsis {
+                font-size: 16px;
+                margin-bottom: 30px;
+            }
+            .play-button {
+                padding: 12px 25px;
+                font-size: 18px;
+            }
+            /* Jika Anda mengaktifkan CSS untuk rotasi gambar: */
+            /*
+            .poster-gambar {
+                transform: rotate(90deg);
+                width: 80vw; 
+                height: 50vw; 
+                transform-origin: center center;
+            }
+            */
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        
+        <div class="search-container">
+            <a href="index.html" class="back-button">Kembali ke Beranda</a>
+        </div>
+    </header>
+
+    <div class="sinopsis-container">
+
+        <img src="yowesben3.jpg" alt="Poster waktumagrib" class="poster-gambar">
+
+        <div class="teks-konten">
+
+            <h1 class="judul-film">Yowisben 3</h1>
+            
+            <div class="movie-meta">
+                <span class="meta-tag">2021</span>
+                <span class="meta-tag">13+</span>
+                <span class="meta-tag">Film</span>
+                <span class="meta-tag">Komedi</span>
+            </div>
+
+            <p class="teks-sinopsis"> Yowis Ben sudah sukses, tapi terancam bubar karena Nando ingin kuliah ke luar negeri. Masalah pribadi makin rumit saat mantan Bayu, Susan, kembali muncul dan memicu cinta segitiga dengan Asih. Intinya: Dilema antara mempertahankan karier, persahabatan, atau masa depan pribadi.
+            </p>
+
+            <a href="yowisben.html" class="play-button" target="_blank">
+                Season 1
+            </a>
+
+             <a href="yowesben2.html" class="play-button" target="_blank">
+                Season 2
+            </a>
+
+             <a href="https://www.bilibili.tv/id/video/2048821795?bstar_from=bstar-web.homepage.recommend.all" class="play-button" target="_blank">
+                Mulai nonton
+            </a>
+
+        </div>
+    </div>
+
+</body>
+</html>

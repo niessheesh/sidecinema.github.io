@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Search SideCinema</title>
+  <style>
+    body { font-family: Arial; margin: 20px; }
+    input { padding: 10px; width: 300px; }
+    .box { margin-top: 20px; padding: 20px; background: #f0f0f0; }
+    .success { color: green; font-weight: bold; }
+    .error { color: red; font-weight: bold; }
+  </style>
+</head>
+<body>
+
+<h1>Test SideCinema Search</h1>
+
+<div class="box">
+  <h3>Test 1: Check Elements</h3>
+  <div id="test1"></div>
+</div>
+
+<div class="box">
+  <h3>Test 2: Check Script Loading</h3>
+  <div id="test2"></div>
+</div>
+
+<div class="box">
+  <h3>Test 3: Check Movies</h3>
+  <div id="test3"></div>
+</div>
+
+<script>
+  // Test 1: Periksa apakah element ada
+  const test1Div = document.getElementById("test1");
+  const searchInput = document.getElementById("searchInput");
+  const suggestionContainer = document.getElementById("suggestionContainer");
+  
+  if (searchInput) {
+    test1Div.innerHTML += '<p class="success">✓ searchInput element ditemukan</p>';
+  } else {
+    test1Div.innerHTML += '<p class="error">✗ searchInput element TIDAK ditemukan</p>';
+  }
+  
+  if (suggestionContainer) {
+    test1Div.innerHTML += '<p class="success">✓ suggestionContainer element ditemukan</p>';
+  } else {
+    test1Div.innerHTML += '<p class="error">✗ suggestionContainer element TIDAK ditemukan</p>';
+  }
+
+  // Test 2: Periksa script
+  const test2Div = document.getElementById("test2");
+  if (typeof initializeMovieNames !== 'undefined') {
+    test2Div.innerHTML = '<p class="success">✓ Script.js berhasil di-load</p>';
+  } else {
+    test2Div.innerHTML = '<p class="error">✗ Script.js TIDAK ter-load</p>';
+  }
+
+  // Test 3: Periksa film
+  const test3Div = document.getElementById("test3");
+  const movies = document.querySelectorAll(".movies img");
+  if (movies.length > 0) {
+    test3Div.innerHTML = '<p class="success">✓ Ditemukan ' + movies.length + ' film</p>';
+  } else {
+    test3Div.innerHTML = '<p class="error">✗ Tidak ada film ditemukan</p>';
+  }
+</script>
+
+</body>
+</html>
